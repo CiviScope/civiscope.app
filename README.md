@@ -25,16 +25,8 @@ We are building the first trustworthy AI intermediation layer for decentralized 
 
 As CiviScope evolves, expect a reproducible workflow that blends human judgment with transparent automation. Briefs are designed to be neutral, citation-backed, and content-addressable, so every reader can trace the evidence behind each claim and share it without ambiguity.
 
-## Quickstart
-
-Reproduce an example brief locally (acceptance test):
-
-```bash
-civiscope brief examples/aave-001.yml
-```
-
 ## Links & Contact
 
-- GitHub: [https://github.com/orpheuslumm](https://github.com/orpheuslumm)
+- GitHub: [https://github.com/orpheuslummis](https://github.com/orpheuslummis)
 - Email: [o@horizonomega.org](mailto:o@horizonomega.org)
-- Bluesky: [https://bsky.app/profile/orpheuslu](https://bsky.app/profile/orpheuslu)
+- Bluesky: [https://bsky.app/profile/orpheuslummis](https://bsky.app/profile/orpheuslummis)
