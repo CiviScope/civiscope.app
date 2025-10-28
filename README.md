@@ -29,4 +29,4 @@ As CiviScope evolves, expect a reproducible workflow that blends human judgment 
 
 - GitHub: [https://github.com/orpheuslummis](https://github.com/orpheuslummis)
 - Email: [o@horizonomega.org](mailto:o@horizonomega.org)
-- Bluesky: [https://bsky.app/profile/orpheuslummis](https://bsky.app/profile/orpheuslummis)
+- Bluesky: [https://bsky.app/profile/orpheuslummis.info](https://bsky.app/profile/orpheuslummis.info)
