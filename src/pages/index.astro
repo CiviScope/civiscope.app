@@ -1,11 +1,404 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Mark from '../components/Mark.astro';
+import { references } from '../data/references';
 ---
 
 <Layout>
-	<Welcome />
+	<main>
+		<div class="hero">
+			<div class="mark-large">
+				<Mark size={80} />
+			</div>
+			<header class="site-header">
+				<h1>CiviScope</h1>
+				<p class="subtitle">Trustworthy AI for democratic participation</p>
+			</header>
+		</div>
+
+		<section class="preamble">
+			<p class="preamble-text">
+				Public decisions happen across scattered forums, documents, and platforms.
+				People want to participate but can't keep up. AI promises to help—but often
+				obscures more than it reveals.
+			</p>
+		</section>
+
+		<section class="manifesto">
+			<h2>AI should distribute—not concentrate—power.</h2>
+		</section>
+
+		<div class="content-wrapper">
+			<div class="trace-line"></div>
+
+			<section class="content">
+				<div class="section-block">
+					<h3>Mission</h3>
+					<p>
+						We're building AI that helps people understand and participate in governance.
+						Tools that show their work.
+						Tools that help people decide, not just algorithms.
+				</p>
+				<p>
+					Because governance you can't understand is governance you can't shape.
+					</p>
+				</div>
+
+				<div class="section-block">
+					<h3>Approach</h3>
+					<p>
+						Our AI makes its reasoning visible. You see the evidence it uses.
+						You can verify its logic. You can challenge its analysis.
+					</p>
+					<p>
+						This means following budget debates, tracing policy changes, understanding
+						who argued what—without a law degree or full-time research staff.
+					</p>
+					<p class="scope-note">
+						Starting with decentralized organizations, expanding to any institution making public decisions.
+					</p>
+				</div>
+
+				<div class="section-block">
+					<h3>Principles</h3>
+					<dl class="principles-list">
+						<div class="principle-item">
+							<dt>Transparent</dt>
+							<dd>The work is shown, not just results</dd>
+						</div>
+						<div class="principle-item">
+							<dt>Open</dt>
+							<dd>Open source, open methods</dd>
+						</div>
+						<div class="principle-item">
+							<dt>Useful</dt>
+							<dd>Built for people making decisions</dd>
+						</div>
+						<div class="principle-item">
+							<dt>Human-centered</dt>
+							<dd>You remain the decision-maker</dd>
+						</div>
+					</dl>
+				</div>
+			</section>
+		</div>
+
+		<section class="references">
+			<h3>References</h3>
+			<ul class="references-list">
+				{references.map(ref => (
+					<li>
+						{ref.description} → <a href={ref.url}>{ref.citation}</a>
+					</li>
+				))}
+			</ul>
+		</section>
+
+		<footer>
+			<div class="social-links">
+				<a href="https://github.com/civiscope/civiscope.app" aria-label="GitHub">GitHub</a>
+				<span class="separator">·</span>
+				<a href="https://bsky.app/profile/civiscope.bsky.social" aria-label="Bluesky">Bluesky</a>
+				<span class="separator">·</span>
+				<a href="https://x.com/CiviScopeApp" aria-label="X (Twitter)">X</a>
+			</div>
+		</footer>
+	</main>
 </Layout>
+
+<style>
+	/* ==========================================================================
+	   Layout
+	   ========================================================================== */
+
+	main {
+		max-width: 38rem;
+		margin: 0 auto;
+		padding: 2rem 2rem 2.5rem;
+	}
+
+	/* ==========================================================================
+	   Hero
+	   ========================================================================== */
+
+	.hero {
+		text-align: center;
+		margin-bottom: 2rem;
+		position: relative;
+	}
+
+	.mark-large {
+		margin: 0 auto 1rem;
+		color: var(--color-text);
+		display: flex;
+		justify-content: center;
+	}
+
+	.site-header {
+		text-align: center;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	h1 {
+		font-family: var(--font-serif);
+		font-size: 2.25rem;
+		font-weight: 400;
+		margin: 0 0 0.5rem;
+		letter-spacing: -0.01em;
+		color: var(--color-text);
+	}
+
+	.subtitle {
+		font-size: 0.9375rem;
+		color: var(--color-text-muted);
+		margin: 0;
+		font-weight: 400;
+	}
+
+	/* ==========================================================================
+	   Preamble & Manifesto
+	   ========================================================================== */
+
+	.preamble {
+		margin: 2rem 0;
+		padding: 1.25rem 1.5rem;
+		background: #fafafa;
+		border-left: 2px solid var(--color-border);
+	}
+
+	.preamble-text {
+		margin: 0;
+		font-size: 0.875rem;
+		line-height: 1.6;
+		color: var(--color-text-muted);
+	}
+
+	.manifesto {
+		margin-bottom: 2.5rem;
+		text-align: center;
+		padding: 2rem 0 1.5rem;
+	}
+
+	.manifesto h2 {
+		font-family: var(--font-serif);
+		font-size: 1.5rem;
+		font-weight: 400;
+		line-height: 1.4;
+		margin: 0;
+		letter-spacing: -0.01em;
+		color: var(--color-text);
+	}
+
+	/* ==========================================================================
+	   Main Content
+	   ========================================================================== */
+
+	.content-wrapper {
+		position: relative;
+		margin-bottom: 2.5rem;
+	}
+
+	.trace-line {
+		position: absolute;
+		left: -1.5rem;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		background: linear-gradient(to bottom,
+			var(--color-border) 0%,
+			var(--color-accent) 30%,
+			var(--color-accent) 70%,
+			var(--color-border) 100%
+		);
+		opacity: 0.4;
+	}
+
+	.content {
+		margin-bottom: 0;
+	}
+
+	.section-block {
+		margin-bottom: 2rem;
+	}
+
+	.section-block:last-child {
+		margin-bottom: 0;
+	}
+
+	/* ==========================================================================
+	   Typography
+	   ========================================================================== */
+
+	h3 {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin: 0 0 1rem;
+		color: var(--color-text-muted);
+	}
+
+	p {
+		margin: 0 0 0.75rem;
+		line-height: 1.6;
+		color: var(--color-text);
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	.scope-note {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		margin-top: 1rem;
+	}
+
+	cite {
+		font-style: italic;
+	}
+
+	/* ==========================================================================
+	   Principles
+	   ========================================================================== */
+
+	.principles-list {
+		margin: 0;
+		padding: 0;
+	}
+
+	.principle-item {
+		margin-bottom: 0.875rem;
+		padding-left: 0;
+	}
+
+	.principle-item:last-child {
+		margin-bottom: 0;
+	}
+
+	dt {
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+		color: var(--color-text);
+	}
+
+	dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	/* ==========================================================================
+	   References
+	   ========================================================================== */
+
+	.references {
+		margin-bottom: 2.5rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.references-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.references-list li {
+		margin-bottom: 0.75rem;
+		line-height: 1.6;
+		font-size: 0.875rem;
+	}
+
+	.references-list li:last-child {
+		margin-bottom: 0;
+	}
+
+	.references-list a {
+		color: var(--color-text-muted);
+		text-decoration: none;
+		border-bottom: 1px solid var(--color-border);
+		transition: all 0.2s;
+	}
+
+	.references-list a:hover {
+		color: var(--color-accent);
+		border-bottom-color: var(--color-accent);
+	}
+
+	/* ==========================================================================
+	   Footer
+	   ========================================================================== */
+
+	footer {
+		border-top: 1px solid var(--color-border);
+		padding-top: 1.5rem;
+	}
+
+	.social-links {
+		font-size: 0.8125rem;
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.social-links a {
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.social-links a:hover {
+		color: var(--color-accent);
+	}
+
+	.separator {
+		color: var(--color-border);
+	}
+
+	/* ==========================================================================
+	   Responsive
+	   ========================================================================== */
+
+	@media (max-width: 640px) {
+		main {
+			padding: 1.5rem 1.25rem 1.5rem;
+		}
+
+		.mark-large svg {
+			width: 64px;
+			height: 64px;
+		}
+
+		h1 {
+			font-size: 1.875rem;
+		}
+
+		.preamble {
+			padding: 1rem 1.25rem;
+			margin: 1.5rem 0;
+		}
+
+		.manifesto {
+			padding: 1.5rem 0 1rem;
+		}
+
+		.manifesto h2 {
+			font-size: 1.375rem;
+		}
+
+		h3 {
+			font-size: 0.6875rem;
+		}
+
+		.section-block {
+			margin-bottom: 1.5rem;
+		}
+
+		.trace-line {
+			display: none;
+		}
+	}
+</style>
